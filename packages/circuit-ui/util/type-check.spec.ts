@@ -144,6 +144,30 @@ describe('type check', () => {
       const actual = isArray(undefined);
       expect(actual).toBeFalsy();
     });
+    it('should return false for string', () => {
+      const actual = isArray('This is a string');
+      expect(actual).toBeFalsy();
+    });
+    it('should return false for number', () => {
+      const actual = isArray(123456);
+      expect(actual).toBeFalsy();
+    });
+    it('should return false for bigint', () => {
+      const actual = isArray(BigInt(1));
+      expect(actual).toBeFalsy();
+    });
+    it('should return false for boolean', () => {
+      const actual = isArray(false);
+      expect(actual).toBeFalsy();
+    });
+    it('should return false for date', () => {
+      const actual = isArray(new Date());
+      expect(actual).toBeFalsy();
+    });
+    it('should return false for symbol', () => {
+      const actual = isArray(Symbol(123456));
+      expect(actual).toBeFalsy();
+    });
   });
 
   describe('isObject', () => {
